@@ -4,23 +4,29 @@
 #include "freertos/FreeRTOS.h"
 #include "driver/gpio.h"
 #include "driver/ledc.h"
+#include "driver/mcpwm_prelude.h"
+#include "esp_log.h"
 
 class Driver1 {
     public:
-        Driver1(gpio_num_t PWM1);//Constructor with pin arguments
+        explicit Driver1(gpio_num_t PWM1); //Constructor con argumento del pin
         
-        //Establece una funcion para encender los motores y establecer una velocidad
-        //En este caso para detener el motor se puede poner una velocidad de 0 
-        void motor_angular_movement(float angle); //Establece la velocidad del motor 1    
-        
-        float motor_angular_pwm(float angle); //Convierte el ángulo en un duty cycle para el PWM donde el ángulo es en grados
+        // Funciones para el control del motor
+        void motor_angular_movement(float angle);   
         
     private:
         //Pines para darle corriente los motores 
         gpio_num_t PWM1;
         
-        //Variables para el canal 
-        ledc_channel_t ledcChannel1;
+        
+        //Variables para el control del motor con mcpwm_prelude
+        mcpwm_timer_handle_t timer;
+        mcpwm_oper_handle_t oper;
+        mcpwm_cmpr_handle_t comparator;
+        mcpwm_gen_handle_t generator;
+
+
+        uint32_t example_angle_to_compare(float angle);
 };
 
 #endif
