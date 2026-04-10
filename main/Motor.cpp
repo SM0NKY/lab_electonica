@@ -7,8 +7,8 @@
 static const char *TAG = "MotorControl";
 
 //Parametros para el control del motor
-#define SERVO_MIN_PULSEWIDTH_US 500  // Ancho de pulso mínimo en microsegundos
-#define SERVO_MAX_PULSEWIDTH_US 2500  // Ancho de pulso máximo en microsegundos
+#define SERVO_MIN_PULSEWIDTH_US 600  // Ancho de pulso mínimo en microsegundos
+#define SERVO_MAX_PULSEWIDTH_US 2400  // Ancho de pulso máximo en microsegundos
 #define SERVO_MIN_DEGREE        0.0f     // Ángulo mínimo
 #define SERVO_MAX_DEGREE        180.0f      // Ángulo máximo
         // GPIO conectado a la línea de señal PWM

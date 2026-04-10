@@ -9,9 +9,9 @@
 #include "Button.h"
 
 //Pin motor PWM
-#define MOTOR_PWM1 GPIO_NUM_32
+#define MOTOR_PWM1 GPIO_NUM_26
 //Pin del botón
-#define BUTTON GPIO_NUM_26
+#define BUTTON GPIO_NUM_32
 
 static const char *TAG = "Button";
 
